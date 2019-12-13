@@ -97,8 +97,15 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
-
+        for x in range(len(self._list)):
+            swap = False
+            for x in range(0, len(self._list) - x - 1):
+                if self._list[x] > self._list[x + 1]:
+                    swap = True
+                    self._list[x], self._list[x + 1] = self._list[x + 1], self._list[x]
+            if swap == False:
+                pass
+        return self._list
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
@@ -110,3 +117,26 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+
+# NOTES
+# similar to bubble sort?
+# moving through list comparing current and neighbor values
+# swapping if current > neighbor
+#
+# def bubble_sort( arr ):
+#     for i in range(len(arr)):
+#         # checks boolean to see if swap has occurred
+#         swap = False
+#         for i in range(0, len(arr) - i - 1):
+#             if arr[i] > arr[i + 1]:
+#                 swap = True
+#                 # swap if current index > neighbor index
+#                 arr[i], arr[i + 1] = arr[i + 1], arr[i]
+#         # if no swapping occcured, break out
+#         if swap == False:
+#             pass
+#     return arr
+# 
+# robot light - ON/OFF boolean
+# if robot position at the start of list -> can move right, no left
+# if robot position at the end of the list -> can move left, no right
